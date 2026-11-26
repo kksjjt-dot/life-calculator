@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부동산 계산기 - 취득세·중개수수료·전월세 전환·대출 이자 (2026년)</title>
+<meta name="description" content="2026년 기준 주택 취득세 계산기, 부동산 중개수수료(복비) 계산기, 전월세 전환율 계산기, 주택담보대출 이자 계산기를 한 페이지에서 이용하세요.">
+<meta property="og:title" content="부동산 계산기 - 취득세·중개수수료·대출 이자 (2026년)">
+<meta property="og:description" content="취득세, 복비, 전월세 전환, 대출 이자를 한 페이지에서 계산합니다.">
+<link rel="stylesheet" href="style.css">
+<style>:root { --accent: var(--re); }</style>
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 바꾸세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="logo" href="index.html">🧮 생활계산기</a>
+  <nav class="nav">
+    <a href="realestate.html" class="active">부동산</a>
+    <a href="car.html">자동차</a>
+    <a href="baby.html">육아</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1>🏠 부동산 계산기</h1>
+  <p class="lead">2026년 기준 세율과 요율로 계산합니다. 금액은 <b>만원 단위</b>로 입력하세요.</p>
+  <nav class="toc">
+    <a href="#acq">취득세</a><a href="#bk">중개수수료</a><a href="#cv">전월세 전환</a><a href="#ln">대출 이자</a>
+  </nav>
+
+  <!-- ① 취득세 -->
+  <section class="calc" id="acq">
+    <h2>취득세 계산기</h2>
+    <p class="desc">집을 살 때 내는 취득세 + 지방교육세 + 농어촌특별세 합계를 계산합니다.</p>
+    <form id="acq-form">
+      <div class="row two">
+        <div>
+          <label for="acq-price">취득가액 (매매가)</label>
+          <div class="field"><input type="text" id="acq-price" inputmode="numeric" data-money="10000" value="60,000"><span class="unit">만원</span></div>
+          <div class="hint" id="acq-price-hint"></div>
+        </div>
+        <div>
+          <label for="acq-kind">부동산 종류</label>
+          <select id="acq-kind">
+            <option value="house">주택 (아파트·빌라·단독)</option>
+            <option value="other">오피스텔·상가·토지</option>
+          </select>
+        </div>
+      </div>
+      <div id="acq-house-opts">
+        <div class="row two">
+          <div>
+            <label for="acq-homes">이번 집 포함 보유 주택 수</label>
+            <select id="acq-homes">
+              <option value="1">1주택</option>
+              <option value="2">2주택</option>
+              <option value="3">3주택</option>
+              <option value="4">4주택 이상</option>
+            </select>
+          </div>
+          <div>
+            <label>추가 조건</label>
+            <label class="check"><input type="checkbox" id="acq-adjusted"> 조정대상지역 주택</label>
+            <label class="check"><input type="checkbox" id="acq-over85"> 전용면적 85㎡ 초과</label>
+            <label class="check"><input type="checkbox" id="acq-first"> 생애최초 주택 구입</label>
+          </div>
+        </div>
+      </div>
+      <button class="btn" type="submit">취득세 계산하기</button>
+    </form>
+    <div class="result" id="acq-result"></div>
+
+    <div class="guide">
+      <h3>2026년 주택 취득세율</h3>
+      <table>
+        <tr><th>취득가액</th><th>취득세</th><th>지방교육세</th><th>농특세(85㎡ 초과)</th></tr>
+        <tr><td>6억 원 이하</td><td>1%</td><td>0.1%</td><td>0.2%</td></tr>
+        <tr><td>6억 초과 ~ 9억 이하</td><td>1.01~2.99%</td><td>취득세의 10%</td><td>0.2%</td></tr>
+        <tr><td>9억 원 초과</td><td>3%</td><td>0.3%</td><td>0.2%</td></tr>
+      </table>
+      <p>6억~9억 원 구간은 <b>(취득가액 × 2/3억 − 3) %</b> 공식으로 세율이 금액에 따라 올라갑니다. 예를 들어 7억 원이면 약 1.67%입니다.</p>
+      <h3>다주택자 중과</h3>
+      <p>조정대상지역 2주택은 8%, 3주택은 조정대상지역 12%·그 외 지역 8%, 4주택 이상은 12%가 적용됩니다. 2026년 기준 조정대상지역은 서울 강남·서초·송파·용산구 정도만 남아 있어 대부분 지역은 2주택까지 기본세율입니다. 이사를 위한 일시적 2주택은 기존 집을 기한 안에 팔면 1주택 세율이 적용됩니다.</p>
+      <h3>생애최초 감면</h3>
+      <p>본인과 배우자 모두 집을 가진 적이 없고, 12억 원 이하 주택을 사면 취득세를 최대 200만 원까지 감면받을 수 있습니다. 2026년 지방세제 개편안에는 40세 미만 청년의 감면 한도를 300만 원으로 늘리는 내용이 있으나 국회 통과 후 시행 시점을 확인하세요.</p>
+      <details><summary>취득세는 언제까지 내야 하나요?</summary><p>잔금일(또는 등기일 중 빠른 날)로부터 60일 이내에 신고·납부해야 하며, 늦으면 가산세가 붙습니다. 위택스나 관할 구청에서 신고할 수 있습니다.</p></details>
+      <details><summary>오피스텔은 주택 수에 포함되나요?</summary><p>오피스텔을 살 때는 주택이 아닌 4.6%(취득세 4% + 교육세 0.4% + 농특세 0.2%)가 적용됩니다. 다만 주거용으로 재산세가 부과되는 오피스텔은 이후 다른 주택을 살 때 주택 수에 포함될 수 있습니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ② 중개수수료 -->
+  <section class="calc" id="bk">
+    <h2>중개수수료(복비) 계산기</h2>
+    <p class="desc">매매·전세·월세 계약 시 공인중개사에게 내는 법정 상한 중개보수를 계산합니다.</p>
+    <form id="bk-form">
+      <div class="row two">
+        <div>
+          <label>거래 종류</label>
+          <div class="seg">
+            <label><input type="radio" name="bk-deal" value="sale" checked>매매</label>
+            <label><input type="radio" name="bk-deal" value="jeonse">전세</label>
+            <label><input type="radio" name="bk-deal" value="monthly">월세</label>
+          </div>
+        </div>
+        <div>
+          <label for="bk-kind">부동산 종류</label>
+          <select id="bk-kind">
+            <option value="house">주택</option>
+            <option value="officetel">오피스텔 (전용 85㎡ 이하, 주거시설)</option>
+            <option value="other">상가·토지·그 밖의 부동산</option>
+          </select>
+        </div>
+      </div>
+      <div class="row two">
+        <div id="bk-price-wrap">
+          <label for="bk-price">매매가</label>
+          <div class="field"><input type="text" id="bk-price" inputmode="numeric" data-money="10000" value="50,000"><span class="unit">만원</span></div>
+          <div class="hint" id="bk-price-hint"></div>
+        </div>
+        <div id="bk-deposit-wrap">
+          <label for="bk-deposit">보증금</label>
+          <div class="field"><input type="text" id="bk-deposit" inputmode="numeric" data-money="10000" value="20,000"><span class="unit">만원</span></div>
+          <div class="hint" id="bk-deposit-hint"></div>
+        </div>
+        <div id="bk-rent-wrap">
+          <label for="bk-rent">월세</label>
+          <div class="field"><input type="text" id="bk-rent" inputmode="numeric" data-money="10000" value="50"><span class="unit">만원</span></div>
+          <div class="hint" id="bk-rent-hint"></div>
+        </div>
+      </div>
+      <button class="btn" type="submit">중개수수료 계산하기</button>
+    </form>
+    <div class="result" id="bk-result"></div>
+
+    <div class="guide">
+      <h3>주택 중개보수 상한요율 (2026년)</h3>
+      <table>
+        <tr><th>매매 거래금액</th><th>상한요율</th><th>한도액</th></tr>
+        <tr><td>5천만 원 미만</td><td>0.6%</td><td>25만 원</td></tr>
+        <tr><td>5천만 ~ 2억 원 미만</td><td>0.5%</td><td>80만 원</td></tr>
+        <tr><td>2억 ~ 9억 원 미만</td><td>0.4%</td><td>없음</td></tr>
+        <tr><td>9억 ~ 12억 원 미만</td><td>0.5%</td><td>없음</td></tr>
+        <tr><td>12억 ~ 15억 원 미만</td><td>0.6%</td><td>없음</td></tr>
+        <tr><td>15억 원 이상</td><td>0.7%</td><td>없음</td></tr>
+      </table>
+      <table>
+        <tr><th>전세·월세 거래금액</th><th>상한요율</th><th>한도액</th></tr>
+        <tr><td>5천만 원 미만</td><td>0.5%</td><td>20만 원</td></tr>
+        <tr><td>5천만 ~ 1억 원 미만</td><td>0.4%</td><td>30만 원</td></tr>
+        <tr><td>1억 ~ 6억 원 미만</td><td>0.3%</td><td>없음</td></tr>
+        <tr><td>6억 ~ 12억 원 미만</td><td>0.4%</td><td>없음</td></tr>
+        <tr><td>12억 ~ 15억 원 미만</td><td>0.5%</td><td>없음</td></tr>
+        <tr><td>15억 원 이상</td><td>0.6%</td><td>없음</td></tr>
+      </table>
+      <h3>월세는 이렇게 환산해요</h3>
+      <p>월세 거래금액 = <b>보증금 + (월세 × 100)</b>. 이 금액이 5천만 원 미만이면 <b>보증금 + (월세 × 70)</b>으로 다시 계산합니다. 예를 들어 보증금 2천만 원·월세 50만 원이면 7천만 원으로 보고 0.4%를 적용해 28만 원이 상한입니다.</p>
+      <details><summary>상한요율대로 꼭 내야 하나요?</summary><p>아닙니다. 요율표는 받을 수 있는 최대치이고, 실제 금액은 계약 전에 중개사와 협의해서 정합니다. 중개대상물 확인·설명서에 보수 금액을 적고 서명하므로 계약 전에 미리 이야기하세요.</p></details>
+      <details><summary>부가세는 따로 내나요?</summary><p>일반과세자 중개사무소는 중개보수의 10%를 부가세로 받을 수 있습니다. 간이과세자는 이보다 낮은 세율이 적용되니 영수증이나 사업자 유형을 확인하세요.</p></details>
+    </div>
+  </section>
+
+  <!-- ③ 전월세 전환 -->
+  <section class="calc" id="cv">
+    <h2>전월세 전환 계산기</h2>
+    <p class="desc">전세를 월세로, 또는 월세를 전세로 바꿀 때 적정 금액을 법정 전환율로 계산합니다.</p>
+    <form id="cv-form">
+      <div class="row">
+        <div class="seg">
+          <label><input type="radio" name="cv-mode" value="j2m" checked>전세 → 월세</label>
+          <label><input type="radio" name="cv-mode" value="m2j">월세 → 전세</label>
+        </div>
+      </div>
+      <div class="row two" id="cv-j2m">
+        <div>
+          <label for="cv-jeonse">현재 전세보증금</label>
+          <div class="field"><input type="text" id="cv-jeonse" inputmode="numeric" data-money="10000" value="30,000"><span class="unit">만원</span></div>
+          <div class="hint" id="cv-jeonse-hint"></div>
+        </div>
+        <div>
+          <label for="cv-newdep">바꾼 뒤 보증금</label>
+          <div class="field"><input type="text" id="cv-newdep" inputmode="numeric" data-money="10000" value="10,000"><span class="unit">만원</span></div>
+          <div class="hint" id="cv-newdep-hint"></div>
+        </div>
+      </div>
+      <div class="row two" id="cv-m2j">
+        <div>
+          <label for="cv-dep">현재 보증금</label>
+          <div class="field"><input type="text" id="cv-dep" inputmode="numeric" data-money="10000" value="5,000"><span class="unit">만원</span></div>
+          <div class="hint" id="cv-dep-hint"></div>
+        </div>
+        <div>
+          <label for="cv-rentval">현재 월세</label>
+          <div class="field"><input type="text" id="cv-rentval" inputmode="numeric" data-money="10000" value="80"><span class="unit">만원</span></div>
+          <div class="hint" id="cv-rentval-hint"></div>
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label for="cv-base">한국은행 기준금리</label>
+          <div class="field"><input type="number" id="cv-base" step="0.25" value="3.00"><span class="unit">%</span></div>
+          <div class="hint">바뀌면 직접 수정하세요 (2026년 10월 3.00%)</div>
+        </div>
+        <div>
+          <label for="cv-rate">적용 전환율</label>
+          <div class="field"><input type="number" id="cv-rate" step="0.1" value="5"><span class="unit">%</span></div>
+          <div class="hint">법정 상한 = 기준금리 + 2%p (최대 10%)</div>
+        </div>
+      </div>
+      <button class="btn" type="submit">전환 금액 계산하기</button>
+    </form>
+    <div class="result" id="cv-result"></div>
+
+    <div class="guide">
+      <h3>전월세 전환율이란?</h3>
+      <p>보증금을 월세로 바꿀 때 적용하는 연 이율입니다. 주택임대차보호법에 따라 계약 기간 중 전세를 월세로 바꾸는 경우 <b>연 10%와 기준금리 + 2%p 중 낮은 비율</b>을 넘을 수 없습니다. 기준금리가 3%라면 상한은 5%입니다.</p>
+      <p>공식: <b>월세 = (전세보증금 − 바꾼 보증금) × 전환율 ÷ 12</b>. 3억 원 전세를 보증금 1억 원으로 바꾸면 2억 원 × 5% ÷ 12 = 월 약 83만 원이 상한입니다.</p>
+      <details><summary>새로 계약할 때도 이 전환율을 지켜야 하나요?</summary><p>법정 상한은 기존 계약을 유지하면서 전환할 때 적용됩니다. 새 계약은 시장 시세에 따라 정해지지만, 시세가 적정한지 판단하는 기준으로 쓸 수 있습니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ④ 대출 이자 -->
+  <section class="calc" id="ln">
+    <h2>대출 이자 계산기</h2>
+    <p class="desc">주택담보대출·전세대출의 월 상환액과 총 이자를 상환 방식별로 계산합니다.</p>
+    <form id="ln-form">
+      <div class="row two">
+        <div>
+          <label for="ln-amount">대출 금액</label>
+          <div class="field"><input type="text" id="ln-amount" inputmode="numeric" data-money="10000" value="30,000"><span class="unit">만원</span></div>
+          <div class="hint" id="ln-amount-hint"></div>
+        </div>
+        <div>
+          <label for="ln-rate">연 이자율</label>
+          <div class="field"><input type="number" id="ln-rate" step="0.01" value="4.2"><span class="unit">%</span></div>
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label for="ln-years">대출 기간</label>
+          <div class="field"><input type="number" id="ln-years" min="1" max="50" value="30"><span class="unit">년</span></div>
+        </div>
+        <div>
+          <label for="ln-method">상환 방식</label>
+          <select id="ln-method">
+            <option value="annuity">원리금균등 (매달 같은 금액)</option>
+            <option value="principal">원금균등 (원금을 똑같이)</option>
+            <option value="bullet">만기일시 (이자만 내다 만기에 원금)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" type="submit">대출 이자 계산하기</button>
+    </form>
+    <div class="result" id="ln-result"></div>
+
+    <div class="guide">
+      <h3>상환 방식별 차이</h3>
+      <table>
+        <tr><th>방식</th><th>특징</th><th>총 이자</th></tr>
+        <tr><td>원리금균등</td><td>매달 내는 돈이 같아 계획 세우기 쉬움</td><td>중간</td></tr>
+        <tr><td>원금균등</td><td>처음 부담이 크고 갈수록 줄어듦</td><td>가장 적음</td></tr>
+        <tr><td>만기일시</td><td>매달 이자만 내고 만기에 원금 상환 (전세대출에 흔함)</td><td>가장 많음</td></tr>
+      </table>
+      <details><summary>월 상환액은 소득의 몇 %가 적당한가요?</summary><p>은행은 DSR(총부채원리금상환비율)로 대출 한도를 정합니다. 은행권은 연 소득의 40% 안에서 모든 대출의 연간 원리금을 갚을 수 있어야 하며, 생활비를 고려하면 월 소득의 30% 이내로 잡는 경우가 많습니다.</p></details>
+    </div>
+  </section>
+
+  <h2 style="font-size:18px">다른 계산기</h2>
+  <div class="related">
+    <a href="car.html">🚗 자동차 계산기<span>자동차세 · 기름값 · 전기차 비교</span></a>
+    <a href="baby.html">👶 육아 계산기<span>출산예정일 · 개월수 · 육아휴직</span></a>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner">
+  계산 결과는 2026년 법령 기준 추정치이며 법적 효력이 없습니다. 실제 세액은 위택스(wetax.go.kr), 중개보수는 지역 조례를 확인하세요.<br>
+  © 2026 생활계산기 · <a href="index.html">홈</a> · <a href="about.html">소개</a> · <a href="qna.html">Q&amp;A</a>
+</div></footer>
+<button class="top-btn" aria-label="맨 위로">↑</button>
+<script src="js/common.js"></script>
+<script src="js/realestate.js"></script>
+</body>
+</html>

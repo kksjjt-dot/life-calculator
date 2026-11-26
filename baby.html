@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>육아 계산기 - 출산 예정일·아기 개월 수·육아휴직 급여 (2026년)</title>
+<meta name="description" content="출산 예정일과 임신 주수, 아기 개월 수와 100일·돌 날짜, 2026년 기준 육아휴직 급여(6+6 부모육아휴직제 포함)를 한 페이지에서 계산하세요.">
+<meta property="og:title" content="육아 계산기 - 출산 예정일·아기 개월 수·육아휴직 급여 (2026년)">
+<meta property="og:description" content="출산 예정일, 100일·돌 날짜, 육아휴직 급여를 한 번에 계산합니다.">
+<link rel="stylesheet" href="style.css">
+<style>:root { --accent: var(--baby); }</style>
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 바꾸세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="logo" href="index.html">🧮 생활계산기</a>
+  <nav class="nav">
+    <a href="realestate.html">부동산</a>
+    <a href="car.html">자동차</a>
+    <a href="baby.html" class="active">육아</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1>👶 육아 계산기</h1>
+  <p class="lead">임신부터 육아휴직까지, 날짜와 급여를 한 번에 계산하세요.</p>
+  <nav class="toc">
+    <a href="#dd">출산 예정일</a><a href="#ba">아기 개월 수·기념일</a><a href="#pl">육아휴직 급여</a>
+  </nav>
+
+  <!-- ① 출산 예정일 -->
+  <section class="calc" id="dd">
+    <h2>출산 예정일 계산기</h2>
+    <p class="desc">마지막 생리 시작일로 출산 예정일과 오늘 기준 임신 주수를 계산합니다.</p>
+    <form id="dd-form">
+      <div class="row two">
+        <div>
+          <label for="dd-lmp">마지막 생리 시작일</label>
+          <input type="date" id="dd-lmp">
+        </div>
+        <div>
+          <label for="dd-cycle">평균 생리 주기</label>
+          <div class="field"><input type="number" id="dd-cycle" min="20" max="45" value="28"><span class="unit">일</span></div>
+          <div class="hint">모르면 28일로 두세요</div>
+        </div>
+      </div>
+      <button class="btn" type="submit">출산 예정일 계산하기</button>
+    </form>
+    <div class="result" id="dd-result"></div>
+
+    <div class="guide">
+      <h3>출산 예정일은 이렇게 계산해요</h3>
+      <p>마지막 생리 시작일에 <b>280일(40주)</b>을 더하는 '네겔레 법칙'을 씁니다. 생리 주기가 28일보다 길거나 짧으면 그만큼 예정일을 뒤로 또는 앞으로 옮깁니다. 임신 주수도 실제 수정일이 아니라 마지막 생리 시작일부터 세기 때문에, 수정 직후가 이미 임신 2주입니다.</p>
+      <table>
+        <tr><th>시기</th><th>주수</th></tr>
+        <tr><td>임신 초기</td><td>0~13주</td></tr>
+        <tr><td>임신 중기</td><td>14~27주</td></tr>
+        <tr><td>임신 후기</td><td>28주~출산</td></tr>
+        <tr><td>만삭</td><td>37주 이후</td></tr>
+      </table>
+      <details><summary>예정일에 실제로 태어날 확률은?</summary><p>예정일 당일에 태어나는 아기는 약 5% 정도입니다. 대부분 예정일 전후 2주 사이(38~42주)에 태어나므로, 예정일은 '이 무렵'이라는 기준으로 보시면 됩니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="6666666666" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ② 아기 개월 수 -->
+  <section class="calc" id="ba">
+    <h2>아기 개월 수 · 100일 · 돌 계산기</h2>
+    <p class="desc">생일만 넣으면 태어난 지 며칠째인지, 몇 개월인지, 50일·100일·돌 같은 기념일이 언제인지 알려 드립니다.</p>
+    <form id="ba-form">
+      <div class="row">
+        <div>
+          <label for="ba-birth">아기 생일</label>
+          <input type="date" id="ba-birth">
+        </div>
+      </div>
+      <button class="btn" type="submit">개월 수 계산하기</button>
+    </form>
+    <div class="result" id="ba-result"></div>
+
+    <div class="guide">
+      <h3>100일은 왜 99일 뒤인가요?</h3>
+      <p>우리나라는 태어난 날을 1일째로 셉니다. 그래서 100일은 생일에서 99일 뒤, 50일은 49일 뒤가 됩니다. 반면 돌은 정확히 1년 뒤 생일입니다.</p>
+      <details><summary>개월 수는 어떻게 세나요?</summary><p>생일과 같은 날짜가 돌아올 때마다 1개월씩 더합니다. 3월 15일생이면 4월 15일에 생후 1개월, 3월 15일에 12개월(돌)이 됩니다. 영유아 검진과 예방접종 시기는 개월 수 기준으로 안내됩니다.</p></details>
+    </div>
+  </section>
+
+  <!-- ③ 육아휴직 급여 -->
+  <section class="calc" id="pl">
+    <h2>육아휴직 급여 계산기 (2026년)</h2>
+    <p class="desc">월 통상임금과 휴직 기간으로 개월별 육아휴직 급여와 합계를 계산합니다.</p>
+    <form id="pl-form">
+      <div class="row two">
+        <div>
+          <label for="pl-wage">월 통상임금</label>
+          <div class="field"><input type="text" id="pl-wage" inputmode="numeric" data-money="10000" value="350"><span class="unit">만원</span></div>
+          <div class="hint" id="pl-wage-hint"></div>
+        </div>
+        <div>
+          <label for="pl-months">휴직 기간</label>
+          <select id="pl-months">
+            <option value="1">1개월</option><option value="2">2개월</option><option value="3">3개월</option>
+            <option value="4">4개월</option><option value="5">5개월</option><option value="6">6개월</option>
+            <option value="7">7개월</option><option value="8">8개월</option><option value="9">9개월</option>
+            <option value="10">10개월</option><option value="11">11개월</option><option value="12" selected>12개월</option>
+            <option value="13">13개월</option><option value="14">14개월</option><option value="15">15개월</option>
+            <option value="16">16개월</option><option value="17">17개월</option><option value="18">18개월</option>
+          </select>
+          <div class="hint">13~18개월은 부모가 각각 3개월 이상 쓴 경우 등</div>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" id="pl-sixsix"> 6+6 부모육아휴직제 적용 (생후 18개월 안에 부모 모두 휴직)</label>
+      <button class="btn" type="submit">육아휴직 급여 계산하기</button>
+    </form>
+    <div class="result" id="pl-result"></div>
+
+    <div class="guide">
+      <h3>2026년 육아휴직 급여 기준</h3>
+      <table>
+        <tr><th>기간</th><th>지급률</th><th>월 상한</th></tr>
+        <tr><td>1~3개월</td><td>통상임금 100%</td><td>250만 원</td></tr>
+        <tr><td>4~6개월</td><td>통상임금 100%</td><td>200만 원</td></tr>
+        <tr><td>7개월 이후</td><td>통상임금 80%</td><td>160만 원</td></tr>
+      </table>
+      <p>하한액은 월 70만 원입니다. 예전에는 급여의 25%를 복직 후에 몰아서 줬지만(사후지급금), 지금은 휴직 기간 중 매달 전액을 받습니다. 상한을 꽉 채워 1년 쉬면 250×3 + 200×3 + 160×6 = 2,310만 원입니다.</p>
+      <h3>6+6 부모육아휴직제</h3>
+      <p>자녀가 태어난 지 18개월 안에 엄마·아빠가 모두(동시에 또는 차례로) 육아휴직을 쓰면, 각자 첫 6개월은 통상임금 100%를 받고 상한도 올라갑니다.</p>
+      <table>
+        <tr><th>개월</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+        <tr><td>월 상한(각자)</td><td>250만</td><td>250만</td><td>300만</td><td>350만</td><td>400만</td><td>450만</td></tr>
+      </table>
+      <details><summary>통상임금은 어떻게 확인하나요?</summary><p>기본급과 매달 고정적으로 받는 수당(직책수당, 식대 등 회사 규정에 따라)을 합친 금액입니다. 성과급·연장근로수당처럼 매달 달라지는 돈은 빠집니다. 정확한 금액은 회사 인사팀이나 급여명세서에서 확인하세요.</p></details>
+      <details><summary>누가 받을 수 있나요?</summary><p>만 8세 이하(초등학교 2학년 이하) 자녀를 둔 근로자 중, 육아휴직 시작 전 고용보험 피보험 단위기간이 180일 이상이면 받을 수 있습니다. 신청은 고용24(work24.go.kr)에서 휴직 시작 1개월 뒤부터 합니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="7777777777" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2 style="font-size:18px">다른 계산기</h2>
+  <div class="related">
+    <a href="realestate.html">🏠 부동산 계산기<span>취득세 · 복비 · 대출 이자</span></a>
+    <a href="car.html">🚗 자동차 계산기<span>자동차세 · 기름값 · 전기차 비교</span></a>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner">
+  계산 결과는 참고용 추정치입니다. 출산 예정일은 병원 진료로, 육아휴직 급여는 고용24 모의계산으로 최종 확인하세요.<br>
+  © 2026 생활계산기 · <a href="index.html">홈</a> · <a href="about.html">소개</a> · <a href="qna.html">Q&amp;A</a>
+</div></footer>
+<button class="top-btn" aria-label="맨 위로">↑</button>
+<script src="js/common.js"></script>
+<script src="js/baby.js"></script>
+</body>
+</html>

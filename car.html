@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동차 계산기 - 자동차세·연납 할인·기름값·전기차 비교 (2026년)</title>
+<meta name="description" content="2026년 기준 배기량·연식별 자동차세와 연납 할인액, 한 달 기름값, 전기차와 내연기관차 유지비 비교를 한 페이지에서 계산하세요.">
+<meta property="og:title" content="자동차 계산기 - 자동차세·기름값·전기차 비교 (2026년)">
+<meta property="og:description" content="자동차세, 연납 할인, 기름값, 전기차 유지비를 한 번에 계산합니다.">
+<link rel="stylesheet" href="style.css">
+<style>:root { --accent: var(--car); }</style>
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 바꾸세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="logo" href="index.html">🧮 생활계산기</a>
+  <nav class="nav">
+    <a href="realestate.html">부동산</a>
+    <a href="car.html" class="active">자동차</a>
+    <a href="baby.html">육아</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1>🚗 자동차 계산기</h1>
+  <p class="lead">2026년 기준 비영업용 승용차로 계산합니다. 연료 가격은 기본값이니 요즘 가격으로 고쳐 넣으세요.</p>
+  <nav class="toc">
+    <a href="#ct">자동차세</a><a href="#fc">월 기름값</a><a href="#ev">전기차 vs 내연기관</a>
+  </nav>
+
+  <!-- ① 자동차세 -->
+  <section class="calc" id="ct">
+    <h2>자동차세 계산기</h2>
+    <p class="desc">배기량과 최초 등록 연도로 올해 자동차세(지방교육세 포함)와 1월 연납 할인액을 계산합니다.</p>
+    <form id="ct-form">
+      <div class="row">
+        <div class="seg">
+          <label><input type="radio" name="ct-fuel" value="ice" checked>휘발유·경유·LPG·하이브리드</label>
+          <label><input type="radio" name="ct-fuel" value="ev">전기·수소차</label>
+        </div>
+      </div>
+      <div class="row two">
+        <div id="ct-cc-wrap">
+          <label for="ct-cc">배기량</label>
+          <div class="field"><input type="text" id="ct-cc" inputmode="numeric" value="1598"><span class="unit">cc</span></div>
+          <div class="hint">자동차등록증 '배기량' 칸에 있어요</div>
+        </div>
+        <div>
+          <label for="ct-year">최초 등록 연도</label>
+          <select id="ct-year"></select>
+        </div>
+      </div>
+      <button class="btn" type="submit">자동차세 계산하기</button>
+    </form>
+    <div class="result" id="ct-result"></div>
+
+    <div class="guide">
+      <h3>배기량별 자동차세 (비영업용 승용)</h3>
+      <table>
+        <tr><th>배기량</th><th>cc당 세액</th><th>예시</th></tr>
+        <tr><td>1,000cc 이하</td><td>80원</td><td>998cc → 79,840원</td></tr>
+        <tr><td>1,600cc 이하</td><td>140원</td><td>1,598cc → 223,720원</td></tr>
+        <tr><td>1,600cc 초과</td><td>200원</td><td>1,999cc → 399,800원</td></tr>
+        <tr><td>전기·수소차</td><td colspan="2">연 10만 원 정액</td></tr>
+      </table>
+      <p>여기에 <b>지방교육세 30%</b>가 더해집니다. 차를 오래 탈수록 세금이 줄어드는데, 등록 후 <b>3년차부터 매년 5%씩, 최대 50%</b>까지 깎아 줍니다(12년차 이상 50%). 전기차는 차령 경감 없이 13만 원(교육세 포함)입니다.</p>
+      <h3>연납하면 얼마나 아낄까?</h3>
+      <p>자동차세는 6월과 12월에 나눠 내지만, 미리 한 번에 내면 남은 기간 세금의 5%를 깎아 줍니다(2026년 기준). 1월에 신청하면 2~12월분이 할인돼 연 세액의 약 4.58%를 아낄 수 있습니다. 3월·6월·9월에도 신청할 수 있지만 할인 폭이 줄어듭니다.</p>
+      <details><summary>하이브리드차 자동차세는 어떻게 되나요?</summary><p>하이브리드차는 엔진 배기량 기준으로 일반 차와 똑같이 계산합니다. 휘발유·경유를 쓰지 않는 전기차·수소차만 10만 원 정액입니다.</p></details>
+      <details><summary>차를 중간에 팔면 연납한 세금은?</summary><p>매도·폐차한 날 이후 남은 기간만큼 일할 계산해서 돌려받습니다. 신청하지 않아도 지자체에서 환급 안내가 옵니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ② 월 기름값 -->
+  <section class="calc" id="fc">
+    <h2>월 기름값 계산기</h2>
+    <p class="desc">한 달 주행거리와 연비로 기름값을 계산합니다.</p>
+    <form id="fc-form">
+      <div class="row three">
+        <div>
+          <label for="fc-km">한 달 주행거리</label>
+          <div class="field"><input type="number" id="fc-km" value="1200"><span class="unit">km</span></div>
+        </div>
+        <div>
+          <label for="fc-eff">연비</label>
+          <div class="field"><input type="number" id="fc-eff" step="0.1" value="12"><span class="unit">km/L</span></div>
+        </div>
+        <div>
+          <label for="fc-price">리터당 가격</label>
+          <div class="field"><input type="number" id="fc-price" value="1700"><span class="unit">원</span></div>
+        </div>
+      </div>
+      <button class="btn" type="submit">기름값 계산하기</button>
+    </form>
+    <div class="result" id="fc-result"></div>
+
+    <div class="guide">
+      <h3>계산 방법</h3>
+      <p><b>월 기름값 = 주행거리 ÷ 연비 × 리터당 가격</b>. 공인연비보다 실제 연비가 10~20% 낮게 나오는 경우가 많으니, 계기판의 평균 연비를 넣으면 더 정확합니다. 우리 동네 최저가 주유소는 한국석유공사 오피넷(opinet.co.kr)에서 확인할 수 있습니다.</p>
+      <details><summary>출퇴근 거리로 한 달 주행거리 잡는 법</summary><p>편도 거리 × 2 × 한 달 출근일(약 21일)에 주말 주행을 더하면 됩니다. 편도 20km라면 20 × 2 × 21 = 840km에 주말 200~300km 정도를 더해 보세요.</p></details>
+    </div>
+  </section>
+
+  <!-- ③ 전기차 vs 내연기관 -->
+  <section class="calc" id="ev">
+    <h2>전기차 vs 내연기관 유지비 비교</h2>
+    <p class="desc">연료비와 자동차세를 합쳐 1년 유지비 차이를 비교하고, 차값 차이를 몇 년 만에 회수하는지 계산합니다.</p>
+    <form id="ev-form">
+      <div class="row two">
+        <div>
+          <label for="ev-km">한 달 주행거리</label>
+          <div class="field"><input type="number" id="ev-km" value="1200"><span class="unit">km</span></div>
+        </div>
+        <div>
+          <label for="ev-gap">차값 차이 (전기차가 비싼 금액)</label>
+          <div class="field"><input type="text" id="ev-gap" inputmode="numeric" data-money="10000" value="800"><span class="unit">만원</span></div>
+          <div class="hint" id="ev-gap-hint"></div>
+        </div>
+      </div>
+      <div class="row three">
+        <div>
+          <label for="ev-iceeff">내연기관 연비</label>
+          <div class="field"><input type="number" id="ev-iceeff" step="0.1" value="12"><span class="unit">km/L</span></div>
+        </div>
+        <div>
+          <label for="ev-iceprice">리터당 가격</label>
+          <div class="field"><input type="number" id="ev-iceprice" value="1700"><span class="unit">원</span></div>
+        </div>
+        <div>
+          <label for="ev-cc">배기량</label>
+          <div class="field"><input type="number" id="ev-cc" value="1598"><span class="unit">cc</span></div>
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label for="ev-eveff">전기차 전비</label>
+          <div class="field"><input type="number" id="ev-eveff" step="0.1" value="5.5"><span class="unit">km/kWh</span></div>
+        </div>
+        <div>
+          <label for="ev-evprice">충전 요금</label>
+          <div class="field"><input type="number" id="ev-evprice" value="300"><span class="unit">원/kWh</span></div>
+          <div class="hint">집밥(완속)은 낮고 급속충전은 높아요</div>
+        </div>
+      </div>
+      <button class="btn" type="submit">유지비 비교하기</button>
+    </form>
+    <div class="result" id="ev-result"></div>
+
+    <div class="guide">
+      <h3>비교할 때 알아둘 점</h3>
+      <p>전기차는 연료비와 자동차세가 낮은 대신 차값과 보험료가 높은 편입니다. 차값 차이는 국고·지자체 보조금을 받은 뒤의 실제 구매가 기준으로 넣으세요. 아파트 완속충전을 주로 쓰면 충전비가 크게 줄고, 급속충전 위주라면 차이가 작아집니다.</p>
+      <details><summary>전비(km/kWh)는 어디서 확인하나요?</summary><p>차량 제원표의 '복합 전비'를 보거나, 타고 있는 차라면 계기판 평균 전비를 넣으세요. 겨울에는 히터 사용으로 전비가 20~30% 떨어질 수 있습니다.</p></details>
+    </div>
+  </section>
+
+  <!-- 광고 -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2 style="font-size:18px">다른 계산기</h2>
+  <div class="related">
+    <a href="realestate.html">🏠 부동산 계산기<span>취득세 · 복비 · 대출 이자</span></a>
+    <a href="baby.html">👶 육아 계산기<span>출산예정일 · 개월수 · 육아휴직</span></a>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="inner">
+  계산 결과는 2026년 지방세법 기준 추정치이며 법적 효력이 없습니다. 정확한 자동차세는 위택스(wetax.go.kr)에서 확인하세요.<br>
+  © 2026 생활계산기 · <a href="index.html">홈</a> · <a href="about.html">소개</a> · <a href="qna.html">Q&amp;A</a>
+</div></footer>
+<button class="top-btn" aria-label="맨 위로">↑</button>
+<script src="js/common.js"></script>
+<script src="js/car.js"></script>
+</body>
+</html>

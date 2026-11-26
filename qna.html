@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q&amp;A - 자주 묻는 질문·개선 요청 | 생활계산기</title>
+<meta name="description" content="생활계산기 자주 묻는 질문과 개선 요청·오류 신고 보내기.">
+<meta property="og:title" content="Q&amp;A - 생활계산기">
+<meta property="og:description" content="자주 묻는 질문을 확인하고, 개선 요청이나 오류를 알려 주세요.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+<!-- Google AdSense: ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 바꾸세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header"><div class="inner">
+  <a class="logo" href="index.html">🧮 생활계산기</a>
+  <nav class="nav">
+    <a href="realestate.html">부동산</a>
+    <a href="car.html">자동차</a>
+    <a href="baby.html">육아</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1>Q&amp;A</h1>
+  <p class="lead">자주 묻는 질문을 확인해 보시고, 개선했으면 하는 점이나 계산 오류는 아래에서 알려 주세요.</p>
+  <nav class="toc">
+    <a href="#faq">자주 묻는 질문</a><a href="#ask">개선 요청·오류 신고</a>
+  </nav>
+
+  <section class="calc" id="faq">
+    <h2>자주 묻는 질문</h2>
+    <details>
+      <summary>이용료가 있나요?</summary>
+      <p>없습니다. 회원가입 없이 모든 계산기를 무료로 쓸 수 있습니다.</p>
+    </details>
+    <details>
+      <summary>어느 시점 기준으로 계산하나요?</summary>
+      <p>2026년 기준 세율과 요율로 계산합니다. 세율과 급여 기준은 매년 1월에 다시 확인해 갱신하고, 기준금리처럼 연중에 바뀌는 값은 바뀔 때 반영합니다.</p>
+    </details>
+    <details>
+      <summary>금액은 어떤 단위로 입력하나요?</summary>
+      <p>금액 입력칸은 모두 만원 단위입니다. 예를 들어 6억 원은 60,000을 입력하면 됩니다.</p>
+    </details>
+    <details>
+      <summary>계산 결과를 그대로 믿어도 되나요?</summary>
+      <p>결과는 참고용 추정치이며 법적 효력이 없습니다. 지자체 조례나 개인별 감면 요건에 따라 실제 금액이 달라질 수 있으니 위택스, 홈택스, 고용24 등 공식 기관에서 최종 확인하세요.</p>
+    </details>
+    <details>
+      <summary>계산기에 입력한 값이 저장되나요?</summary>
+      <p>저장되지 않습니다. 계산은 브라우저 안에서만 이루어지며 입력값은 서버로 전송되지 않습니다. 아래 양식에 직접 적어 보내 주신 내용만 운영자에게 전달됩니다.</p>
+    </details>
+    <details>
+      <summary>공식 사이트와 결과가 다르면 어떻게 하나요?</summary>
+      <p>공식 기관의 결과가 우선입니다. 계산기에 반영하지 못한 감면 조건이나 지역별 기준이 있을 수 있으니, 아래 양식으로 입력값과 함께 알려 주시면 확인 후 바로잡겠습니다.</p>
+    </details>
+  </section>
+
+  <section class="calc" id="ask">
+    <h2>개선 요청·오류 신고</h2>
+    <p class="desc">계산 오류, 불편한 점, 추가됐으면 하는 계산기 등을 보내 주세요. 개별 답변은 드리지 않지만 보내 주신 내용은 모두 읽고 반영 여부를 검토합니다.</p>
+    <!-- 구글 폼: 폼의 [보내기] > [<>] 퍼가기에서 나온 주소로 아래 FORM_ID 두 곳을 바꾸세요 -->
+    <div class="gform" id="gform">
+      <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" title="개선 요청·오류 신고 양식" loading="lazy">로드 중…</iframe>
+      <p class="hint">양식이 보이지 않으면 <a href="https://docs.google.com/forms/d/e/FORM_ID/viewform" target="_blank" rel="noopener">새 창에서 열기</a></p>
+    </div>
+    <p class="result" id="gform-wait">보내기 기능을 준비 중입니다. 잠시 후 다시 방문해 주세요.</p>
+    <script>
+      // FORM_ID를 바꾸기 전에는 구글 오류 화면 대신 준비 중 안내를 보여 준다
+      if (document.querySelector('#gform iframe').src.indexOf('FORM_ID') !== -1) {
+        document.getElementById('gform').hidden = true;
+        document.getElementById('gform-wait').classList.add('show');
+      }
+    </script>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="inner">
+  생활계산기의 결과는 참고용 추정치이며 법적 효력이 없습니다. 세금·급여는 위택스, 홈택스, 고용24 등 공식 기관에서 최종 확인하세요.<br>
+  © 2026 생활계산기 · <a href="index.html">홈</a> · <a href="about.html">소개</a> · <a href="qna.html">Q&amp;A</a>
+</div></footer>
+</body>
+</html>
